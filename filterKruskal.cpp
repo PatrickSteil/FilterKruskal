@@ -69,12 +69,6 @@ class UnionFind {
       link(find(i), find(j));
     }
   }
-
-  void pointerJumping() {
-    for (size_t i = 0; i < parent.size(); ++i) {
-      while (parent[i] != parent[parent[i]]) parent[i] = parent[parent[i]];
-    }
-  }
 };
 
 class Algorithm {
@@ -105,7 +99,7 @@ class Algorithm {
   inline void filterKruskal(size_t left, size_t right) {
     // some threshold linear in n
     // right - left == number of edges we need to process
-    if ((right - left) * 5 <= 4 * numNodes) {
+    if ((right - left)<= (numNodes<<1)) {
       kruskal(left, right);
       return;
     }
