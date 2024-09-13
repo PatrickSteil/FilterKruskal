@@ -162,8 +162,6 @@ class Algorithm {
   }
 };
 
-// this main method has been written by chatgpt to evaluate the algorithm (first
-// simple 'benchmark', but it shows how to use it)
 int main() {
   const int numRuns = 5;
   double totalTime = 0.0;
@@ -174,20 +172,16 @@ int main() {
       size_t numEdges = 10 * numNodes;
       Algorithm algorithm(numNodes, numEdges);
 
-      // Example: Generating a vector of random edges
       std::vector<Edge> exampleEdges;
       for (size_t i = 0; i < numEdges; ++i) {
         uint64_t source = rand() % numNodes;
         uint64_t target = rand() % numNodes;
-        uint64_t weight =
-            rand() % 2000;  // Replace 100 with your desired maximum weight
+        uint64_t weight = rand() % 2000;
         exampleEdges.emplace_back(source, target, weight);
       }
 
-      // Measure execution time
       auto start = std::chrono::high_resolution_clock::now();
 
-      // Example: Running the algorithm
       size_t result = algorithm.run(exampleEdges);
 
       auto end = std::chrono::high_resolution_clock::now();
@@ -195,15 +189,11 @@ int main() {
 
       totalTime += duration.count();
 
-      // Example: Printing the result
-      std::cout << "Run " << run + 1
-                << ": Minimum Spanning Tree Weight: " << result << std::endl;
+      std::cout << "Run " << (run + 1) << ": Minimum Spanning Tree Weight: " << result << std::endl;
     }
 
-    // Calculate average time
     double averageTime = totalTime / numRuns;
-    std::cout << "Average Execution Time with i = " << i << " : " << averageTime
-              << " seconds" << std::endl;
+    std::cout << "Average Execution Time with i = " << i << " : " << averageTime << " seconds" << std::endl;
   }
   return 0;
 }
