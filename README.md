@@ -5,6 +5,8 @@ This is my implementation of the FilterKruskal MST Algortihm [https://algo2.iti.
 g++ -O3 --std=c++17 -march=native filterKruskal.cpp -o filterKruskal -ltbb -fopenmp
 ```
 
+For more information on the code itself, see `ParallelMST_Project.pdf`.
+
 Example output of the `./filterKruskal` programm:
 
 ```
